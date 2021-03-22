@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#e03939",
+    "statusBar.background" : "#e03939",
+  },
+  "files.eol": "\n",
+//   "i18n-ally.localesPaths": "./src/lang/locales",
+//   "i18n-ally.sourceLanguage": "pt",
+//   "i18n-ally.keystyle": "nested"
+}
