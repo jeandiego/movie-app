@@ -29,6 +29,11 @@ build/
 local.properties
 *.iml
 
+# dotenv environment variables file
+.env
+.env.prod
+.env.dev
+
 # node.js
 #
 node_modules/
