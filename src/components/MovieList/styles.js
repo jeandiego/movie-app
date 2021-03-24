@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Text = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.text};
   font-size: 18px;
-  font-weight: 600;
-  flex: 1;
+  font-weight: 700;
+  padding-left: 16px;
 `;
 
 export const Title = styled.Text`

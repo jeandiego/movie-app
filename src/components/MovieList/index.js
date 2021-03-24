@@ -15,6 +15,7 @@ const MovieList = ({ list, title }) => {
         style={{
           flexGrow: 1,
           marginTop: 8,
+          paddingLeft: 16,
           marginBottom: 16,
         }}
         renderItem={({ item }) => {
