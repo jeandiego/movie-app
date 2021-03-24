@@ -3,8 +3,8 @@ import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import MovieList from '../../components/MovieList';
-// import { Logo } from '~/svgs';
 import { Container } from './styles';
+import Headers from '../../components/Headers';
 
 const HomeView = (props) => {
   const { trendingList, popularList, nowPlayingList } = props;
@@ -12,8 +12,8 @@ const HomeView = (props) => {
 
   return (
     <Container safeArea={insets}>
-      {/* <Logo /> */}
       <ScrollView>
+        <Headers />
         <MovieList list={trendingList} title="Em alta" />
         <MovieList list={popularList} title="Populares" />
         <MovieList list={nowPlayingList} title="Now Playing" />
