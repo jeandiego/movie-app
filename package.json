@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-root-import": "^6.6.0",
+    "expo-linear-gradient": "^9.0.0",
     "react": "17.0.1",
     "react-native": "0.64.0",
     "react-native-dotenv": "^2.5.3",
