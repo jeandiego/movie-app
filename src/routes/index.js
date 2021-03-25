@@ -15,7 +15,11 @@ const Routes = () => {
           component={Home}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Preview" component={Preview} />
+        <Stack.Screen
+          name="Preview"
+          component={Preview}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
