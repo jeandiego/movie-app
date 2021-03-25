@@ -10,7 +10,7 @@ const GlobalStyle = {
   white: '#FFFFFF',
   black: '#000000',
   transparent: '#00000000',
-  semiTransparent: 'rgba(0,0,0,0.1)',
+  semiTransparent: 'rgba(0,0,0,0.3)',
 
   positive: '#22CD5A',
   negative: '#FF583F',
