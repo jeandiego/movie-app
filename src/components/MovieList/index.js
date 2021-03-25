@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
-import { Text, Container, Image, Title, Date } from './styles';
+import Header from '../Headers';
+import { Container, Image } from './styles';
 
-const MovieList = ({ list, title }) => {
+const MovieList = ({ list, title, highlights }) => {
   return (
     <>
-      <Text>{title}</Text>
+      <Header type="List" title={title} />
       <FlatList
         data={list}
         keyExtractor={(item) => item.id}
@@ -23,14 +24,15 @@ const MovieList = ({ list, title }) => {
 
           return (
             <>
-              <Container>
+              <Container highlights={highlights}>
                 <Image
+                  highlights={highlights}
                   source={{
                     uri,
                   }}
                 />
-                <Title numberOfLines={1}>{item.title}</Title>
-                <Date>{item.release_date}</Date>
+                {/* <Title numberOfLines={1}>{item.title}</Title>
+                <Genres>Ação</Genres> */}
               </Container>
             </>
           );

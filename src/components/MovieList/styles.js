@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Container = styled.TouchableOpacity`
+  width: ${(props) => (props.highlights ? 175 : 110)}px;
+  height: ${(props) => (props.highlights ? 263 : 160)}px;
+  margin-right: 8px;
+`;
+
 export const Text = styled.Text`
   color: ${(props) => props.theme.text};
   font-size: 18px;
@@ -7,25 +13,10 @@ export const Text = styled.Text`
   padding-left: 16px;
 `;
 
-export const Title = styled.Text`
-  color: ${(props) => props.theme.text};
-  font-size: 14px;
-  padding: 4px 0;
-`;
-
-export const Date = styled.Text`
-  color: ${(props) => props.theme.description};
-  font-size: 12px;
-`;
-
-export const Container = styled.View`
-  width: 148px;
-  height: 244px;
-  margin-right: 8px;
-`;
-
-export const Image = styled.Image`
+export const Image = styled.Image.attrs({
+  resizeMode: 'stretch',
+})`
   width: 100%;
-  height: 80%;
-  border-radius: 12px;
+  height: 100%;
+  border-radius: ${(props) => (props.highlights ? 12 : 6)}px;
 `;
