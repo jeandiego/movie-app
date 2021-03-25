@@ -5,6 +5,8 @@ import Header from '../Headers';
 import { Container, Image } from './styles';
 
 const MovieList = ({ list, title, highlights }) => {
+  const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
+
   return (
     <>
       <Header type="List" title={title} />
@@ -20,7 +22,7 @@ const MovieList = ({ list, title, highlights }) => {
           marginBottom: 16,
         }}
         renderItem={({ item }) => {
-          const uri = `https://image.tmdb.org/t/p/w500/${item.poster_path}`;
+          const uri = `${ImgUrl}${item.poster_path}`;
 
           return (
             <>
