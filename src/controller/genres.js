@@ -1,12 +1,12 @@
-import api from 'axios';
+import api from '../api';
 
 export const getGenres = async () => {
   try {
-    const response = await api.get('genre/movie/list');
-    console.log('Success Genres');
-    return response;
+    const response = await api.get(`genre/movie/list`);
+    console.log('Succces to get genres');
+    return response.data.genres;
   } catch (error) {
-    console.error('Genres wasn`t find');
+    console.log('Didn`t work');
     return [];
   }
 };

@@ -2,7 +2,7 @@ import api from '../api';
 
 export const getTrending = async () => {
   try {
-    const response = await api.get('trending/movie/day');
+    const response = await api.get(`trending/movie/day`);
     console.log('Success Trendings');
     return response.data.results;
   } catch (error) {
@@ -47,7 +47,7 @@ export const getDiscover = async () => {
 export const getSuggestion = async () => {
   try {
     const response = await api.get('movie/14611/similar');
-    console.log(response);
+    console.log('Success Similar');
     return response.data.results;
   } catch (error) {
     console.error('No similar movies');
