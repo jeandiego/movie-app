@@ -1,9 +1,14 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: 'false',
+})`
   flex: 1;
   background: ${(props) => props.theme.background};
-  padding-top: ${(props) => props.safeArea.top + 16}px;
+`;
+
+export const MovieView = styled.View`
+  padding-bottom: ${(props) => props.safeArea.bottom + 16}px;
 `;
 
 export const Title = styled.Text`
