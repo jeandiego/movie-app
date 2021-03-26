@@ -63,9 +63,7 @@ const PreviewView = (props) => {
         <Content>
           <Wrapper>
             <Logo width={26} height={30} />
-            <Badge type style={{ marginLeft: 8 }}>
-              FILME
-            </Badge>
+            <Badge header>FILME</Badge>
           </Wrapper>
           <Title>Vingadores: Ultimato 2</Title>
           <InfoWrapper>

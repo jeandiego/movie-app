@@ -64,10 +64,11 @@ export const InfoWrapper = styled.View`
 
 export const Badge = styled.Text`
   color: ${(props) => props.theme.white};
-  font-size: ${(props) => (props.type ? 14 : 16)};
+  font-size: ${(props) => (props.header ? 14 : 16)};
   opacity: 0.35;
-  font-weight: ${(props) => (props.type ? 500 : 400)};
-  letter-spacing: ${(props) => (props.type ? 4 : 0)};
+  font-weight: ${(props) => (props.header ? 500 : 400)};
+  letter-spacing: ${(props) => (props.header ? 4 : 0)};
+  margin-left: ${(props) => (props.header ? 8 : 0)};
 `;
 
 export const Rating = styled.Text`
