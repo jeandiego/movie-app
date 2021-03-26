@@ -25,11 +25,6 @@ const HomeView = (props) => {
         <StatusBar barStyle="light-content" />
         <Carousel list={discoverList} genres={genresList} />
         <MovieView safeArea={insets}>
-          {/* {genresList.map((item) => {
-            const title = `${item.name}`;
-
-            return <MovieList list={trendingList} title={title} />;
-          })} */}
           <MovieList list={discoverList} title="Descubra também" highlights />
           <MovieList list={trendingList} title="Em alta" />
           <MovieList list={popularList} title="Populares" />
