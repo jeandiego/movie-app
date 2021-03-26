@@ -48,7 +48,9 @@ export const Wrapper = styled.View`
   justify-content: flex-start;
 `;
 
-export const MovieWrapper = styled.ScrollView``;
+export const MovieWrapper = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: 'false',
+})``;
 
 export const Content = styled.View`
   padding: 0 16px;
@@ -78,7 +80,7 @@ export const Button = styled.TouchableOpacity`
   background: rgba(0, 0, 0, 0.2);
   flex: 0.25;
   align-items: center;
-  padding: 8px 0;
+  padding: 8px;
   border-radius: 6px;
   margin-right: 8px;
 `;

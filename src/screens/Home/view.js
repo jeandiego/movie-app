@@ -14,6 +14,7 @@ const HomeView = (props) => {
     nowPlayingList,
     discoverList,
     suggestionList,
+    genresList,
   } = props;
   const insets = useSafeAreaInsets();
 
@@ -22,8 +23,13 @@ const HomeView = (props) => {
       <Container safeArea={insets}>
         <Header type="Home" />
         <StatusBar barStyle="light-content" />
-        <Carousel list={discoverList} />
+        <Carousel list={discoverList} genres={genresList} />
         <MovieView safeArea={insets}>
+          {/* {genresList.map((item) => {
+            const title = `${item.name}`;
+
+            return <MovieList list={trendingList} title={title} />;
+          })} */}
           <MovieList list={discoverList} title="Descubra também" highlights />
           <MovieList list={trendingList} title="Em alta" />
           <MovieList list={popularList} title="Populares" />

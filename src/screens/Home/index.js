@@ -6,6 +6,7 @@ import {
   getSuggestion,
   getTrending,
 } from '../../controller/movies';
+import { getGenres } from '../../controller/genres';
 import HomeView from './view';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
   const [nowPlayingList, setNowPlayingList] = useState([]);
   const [discoverList, setDiscoverList] = useState([]);
   const [suggestionList, setSuggestionList] = useState([]);
+  const [genresList, setGenresList] = useState([]);
 
   async function getTrendingList() {
     const trendingMovieList = await getTrending();
@@ -40,6 +42,11 @@ const Home = () => {
     setSuggestionList(suggestionMovieList);
   }
 
+  async function getGenresList() {
+    const genresMovieList = await getGenres();
+    setGenresList(genresMovieList);
+  }
+
   useEffect(() => {
     getTrendingList();
   }, []);
@@ -60,6 +67,10 @@ const Home = () => {
     getSuggestionList();
   }, []);
 
+  useEffect(() => {
+    getGenresList();
+  }, []);
+
   return (
     <HomeView
       trendingList={trendingList}
@@ -67,6 +78,7 @@ const Home = () => {
       nowPlayingList={nowPlayingList}
       discoverList={discoverList}
       suggestionList={suggestionList}
+      genresList={genresList}
     />
   );
 };

@@ -82,21 +82,21 @@ const PreviewView = (props) => {
           </Description>
           <Wrapper style={{ paddingBottom: 16, paddingTop: 16 }}>
             <Button onPress={() => {}}>
-              <Add width={20} height={20} />
+              <Add width={24} height={24} />
               <ButtonText>Minha lista</ButtonText>
             </Button>
             <Button onPress={() => {}}>
-              <Like width={20} height={20} />
+              <Like width={24} height={24} />
               <ButtonText>Gostei</ButtonText>
             </Button>
             <Button onPress={() => {}}>
-              <Send width={20} height={20} />
+              <Send width={24} height={24} />
               <ButtonText>Compartilhar</ButtonText>
             </Button>
           </Wrapper>
           <Line />
-          <MovieList list={trendingList} title="Talvez você goste" />
         </Content>
+        <MovieList list={trendingList} title="Talvez você goste" />
       </MovieWrapper>
     </Container>
   );
