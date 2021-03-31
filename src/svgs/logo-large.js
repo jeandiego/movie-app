@@ -8,9 +8,7 @@ const Svg = (props) => {
   const colors = useColors();
 
   const xml = `
-  <svg width="${width || 768}" height="${
-    height || 660
-  }" viewBox="0 0 700 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="${width}" height="${height}" viewBox="0 0 700 660" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g opacity="0.08">
   <path d="M287.527 0H454.433L315.582 660H148.677L287.527 0Z" fill="url(#paint0_linear)"/>
   <path d="M533.502 0H700L592.08 518.4H425.542L533.502 0Z" fill="url(#paint1_linear)"/>
@@ -35,7 +33,7 @@ const Svg = (props) => {
 
   return (
     <View>
-      <SvgXml xml={xml} width={width} height={height} />
+      <SvgXml xml={xml} width={width || 768} height={height || 660} />
     </View>
   );
 };

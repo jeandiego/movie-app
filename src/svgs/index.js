@@ -6,3 +6,4 @@ export { default as Like } from './like';
 export { default as Back } from './arrow-left';
 export { default as LargeLogo } from './logo-large';
 export { default as LogoName } from './logo-name';
+export { default as Globe } from './globe';

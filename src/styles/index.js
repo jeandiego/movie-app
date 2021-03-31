@@ -6,6 +6,7 @@ const GlobalStyle = {
   description: '#76767C',
 
   svgcolors: '#ADADB0',
+  bordercolor: '#2D2D2D',
 
   white: '#FFFFFF',
   black: '#000000',
