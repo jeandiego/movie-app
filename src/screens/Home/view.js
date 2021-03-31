@@ -15,28 +15,41 @@ const HomeView = (props) => {
     discoverList,
     suggestionList,
     genresList,
+    ChangeLanguage,
   } = props;
   const insets = useSafeAreaInsets();
 
   return (
-    <>
-      <Container safeArea={insets}>
-        <Header type="Home" />
-        <StatusBar barStyle="light-content" />
-        <Carousel list={discoverList} genres={genresList} />
-        <MovieView safeArea={insets}>
-          <MovieList list={discoverList} title="Descubra também" highlights />
-          <MovieList list={trendingList} title="Em alta" />
-          <MovieList list={popularList} title="Populares" />
-          <MovieList
-            list={nowPlayingList}
-            title="Assistindo agora"
-            highlights
-          />
-          <MovieList list={suggestionList} title="Sugestao" />
-        </MovieView>
-      </Container>
-    </>
+    <Container safeArea={insets}>
+      <Header type="Home" />
+      <StatusBar barStyle="light-content" />
+      <Carousel
+        movies={discoverList}
+        genres={genresList}
+        ChangeLanguage={ChangeLanguage}
+      />
+      <MovieView safeArea={insets}>
+        <MovieList
+          movies={discoverList}
+          title="Descubra também"
+          highlights
+          horizontal
+        />
+        <MovieList movies={trendingList} title="Em alta" horizontal />
+        <MovieList movies={popularList} title="Populares" horizontal />
+        <MovieList
+          movies={nowPlayingList}
+          title="Assistindo agora"
+          highlights
+          horizontal
+        />
+        <MovieList
+          movies={suggestionList}
+          title="Recomendados para você"
+          horizontal
+        />
+      </MovieView>
+    </Container>
   );
 };
 

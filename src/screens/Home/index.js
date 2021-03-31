@@ -8,6 +8,7 @@ import {
 } from '../../controller/movies';
 import { getGenres } from '../../controller/genres';
 import HomeView from './view';
+import api from '../../api';
 
 const Home = () => {
   const [trendingList, setTrendingList] = useState([]);
@@ -16,6 +17,7 @@ const Home = () => {
   const [discoverList, setDiscoverList] = useState([]);
   const [suggestionList, setSuggestionList] = useState([]);
   const [genresList, setGenresList] = useState([]);
+  const [currentLanguage, setCurrentLanguage] = useState('pt');
 
   async function getTrendingList() {
     const trendingMovieList = await getTrending();
@@ -47,32 +49,33 @@ const Home = () => {
     setGenresList(genresMovieList);
   }
 
-  useEffect(() => {
-    getTrendingList();
-  }, []);
+  function ChangeLanguage() {
+    if (currentLanguage === 'pt') {
+      api.defaults.params.language = 'en-US';
+      setCurrentLanguage('en');
+    } else {
+      api.defaults.params.language = 'pt-BR';
+      setCurrentLanguage('pt');
+    }
+    Inicialize();
+  }
+
+  async function Inicialize() {
+    await getGenresList();
+    await getDiscoverList();
+    await getTrendingList();
+    await getPopularList();
+    await getNowPlayingList();
+    await getSuggestionList();
+  }
 
   useEffect(() => {
-    getPopularList();
-  }, []);
-
-  useEffect(() => {
-    getNowPlayingList();
-  }, []);
-
-  useEffect(() => {
-    getDiscoverList();
-  }, []);
-
-  useEffect(() => {
-    getSuggestionList();
-  }, []);
-
-  useEffect(() => {
-    getGenresList();
+    Inicialize();
   }, []);
 
   return (
     <HomeView
+      ChangeLanguage={ChangeLanguage}
       trendingList={trendingList}
       popularList={popularList}
       nowPlayingList={nowPlayingList}
