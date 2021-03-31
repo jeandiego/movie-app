@@ -8,12 +8,13 @@ import {
   GradientBottom,
   ItemList,
   Title,
+  Genres,
   InfoWrapper,
   WatchButton,
   Text,
 } from './styles';
 
-const Carousel = ({ list }) => {
+const Carousel = ({ movies, genres }) => {
   const navigation = useNavigation();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
@@ -24,14 +25,20 @@ const Carousel = ({ list }) => {
   return (
     <Container>
       <FlatList
-        data={list}
+        data={movies}
         keyExtractor={(item) => item.id}
         horizontal
         pagingEnabled
-        autoPlay
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           const uri = `${ImgUrl}${item.backdrop_path}`;
+          const foundGenre = item.genre_ids.map((genreID) => {
+            const generoEncontrado = genres.find((genre) => {
+              return genreID === genre.id;
+            });
+            return generoEncontrado.name;
+          });
+          const genresFiltered = foundGenre.splice(0, 1);
 
           return (
             <>
@@ -52,7 +59,8 @@ const Carousel = ({ list }) => {
                   end={{ x: 0, y: 1 }}>
                   <InfoWrapper>
                     <Title numberOfLines={1}>{item.title}</Title>
-                    <Title>{item.genre_ids}</Title>
+
+                    <Genres>{genresFiltered}</Genres>
                     <WatchButton onPress={onPress}>
                       <Text>Assistir</Text>
                     </WatchButton>

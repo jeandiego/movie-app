@@ -47,6 +47,14 @@ export const Title = styled.Text`
   padding: 4px 0;
 `;
 
+export const Genres = styled.Text`
+  color: ${(props) => props.theme.description};
+  font-size: 17px;
+  font-weight: 500;
+  padding-bottom: 16px;
+  /* background: red; */
+`;
+
 export const WatchButton = styled.TouchableOpacity`
   background: ${(props) => props.theme.primary};
   width: 100%;
