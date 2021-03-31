@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.TouchableOpacity`
   width: ${(props) => (props.highlights ? 175 : 110)}px;
   height: ${(props) => (props.highlights ? 263 : 160)}px;
-  margin-right: 8px;
+  margin: 8px 8px 0px 0px;
 `;
 
 export const Text = styled.Text`
