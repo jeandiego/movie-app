@@ -8,23 +8,21 @@ const SplashView = () => {
   const colors = useColors();
 
   return (
-    <>
-      <Container>
-        <PatternBg>
-          <LargeLogo width={508} height={500} />
-        </PatternBg>
-        <LogoName width={268} height={76} />
-        <ActivityIndicator
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            paddingVertical: 64,
-          }}
-          size="large"
-          color={colors.primary}
-        />
-      </Container>
-    </>
+    <Container>
+      <PatternBg>
+        <LargeLogo width={508} height={500} />
+      </PatternBg>
+      <LogoName width={268} height={76} />
+      <ActivityIndicator
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          paddingVertical: 64,
+        }}
+        size="large"
+        color={colors.primary}
+      />
+    </Container>
   );
 };
 

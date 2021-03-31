@@ -6,7 +6,7 @@ const Splash = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    setTimeout(() => navigation.navigate('Home'), 2000);
+    setTimeout(() => navigation.navigate('Home'), 3000);
   }, []);
 
   return <SplashView />;
