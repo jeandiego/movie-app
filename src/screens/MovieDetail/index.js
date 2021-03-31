@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import MovieDetailView from './view';
-import { getDiscover, getMovieDetail } from '../../controller/movies';
+import { getMovieDetail, getSuggestion } from '../../controller/movies';
 import { Add, Like, Send } from '~/svgs';
 
 const MovieDetail = () => {
   const movieRoute = useRoute();
-  const [discoverList, setDiscoverList] = useState([]);
+  const [suggestionList, setSuggestionList] = useState([]);
   const [movieDetail, setMovieDetail] = useState(movieRoute?.params?.movie);
   const movie = movieRoute?.params?.movie;
 
@@ -15,9 +15,9 @@ const MovieDetail = () => {
     setMovieDetail(selectedMovieDetail);
   }
 
-  async function getDiscoverList() {
-    const discoverMovieList = await getDiscover();
-    setDiscoverList(discoverMovieList);
+  async function getSuggestionList() {
+    const similarMovies = await getSuggestion(movie.id);
+    setSuggestionList(similarMovies);
   }
 
   const buttonsView = [
@@ -38,14 +38,18 @@ const MovieDetail = () => {
     },
   ];
 
+  async function Inicialize() {
+    await getSelectedMovieDetail();
+    await getSuggestionList();
+  }
+
   useEffect(() => {
-    getSelectedMovieDetail();
-    getDiscoverList();
+    Inicialize();
   }, [movie]);
 
   return (
     <MovieDetailView
-      discoverList={discoverList}
+      suggestionList={suggestionList}
       movieDetail={movieDetail}
       buttonsView={buttonsView}
     />

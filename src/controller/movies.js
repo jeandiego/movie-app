@@ -44,9 +44,9 @@ export const getDiscover = async () => {
   }
 };
 
-export const getSuggestion = async () => {
+export const getSuggestion = async (movieId) => {
   try {
-    const response = await api.get('movie/14611/similar');
+    const response = await api.get(`movie/${movieId}/similar`);
     console.log('Success Similar');
     return response.data.results;
   } catch (error) {

@@ -32,13 +32,13 @@ const Carousel = ({ movies, genres }) => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           const uri = `${ImgUrl}${item.backdrop_path}`;
-          const foundGenre = item.genre_ids.map((genreID) => {
-            const generoEncontrado = genres.find((genre) => {
+          const genreFound = item.genre_ids.map((genreID) => {
+            const genreMatch = genres.find((genre) => {
               return genreID === genre.id;
             });
-            return generoEncontrado.name;
+            return genreMatch.name;
           });
-          const genresFiltered = foundGenre.splice(0, 1);
+          const genresFiltered = genreFound.splice(0, 1);
 
           return (
             <>

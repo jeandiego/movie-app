@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Header from '../Headers';
 import { Container, Image } from './styles';
@@ -10,7 +11,6 @@ const MovieList = ({ movies, title, highlights, horizontal, columns }) => {
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
   function goToDetail(movie) {
-    console.log(movie);
     navigation.navigate('Preview', { movie });
   }
 
@@ -34,18 +34,14 @@ const MovieList = ({ movies, title, highlights, horizontal, columns }) => {
           const uri = `${ImgUrl}${item.poster_path}`;
 
           return (
-            <>
-              <Container
+            <Container highlights={highlights} onPress={() => goToDetail(item)}>
+              <Image
                 highlights={highlights}
-                onPress={() => goToDetail(item)}>
-                <Image
-                  highlights={highlights}
-                  source={{
-                    uri,
-                  }}
-                />
-              </Container>
-            </>
+                source={{
+                  uri,
+                }}
+              />
+            </Container>
           );
         }}
       />

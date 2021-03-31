@@ -44,7 +44,7 @@ const HomeView = (props) => {
           horizontal
         />
         <MovieList
-          movies={suggestionList}
+          movies={nowPlayingList}
           title="Recomendados para você"
           horizontal
         />

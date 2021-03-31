@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import MovieList from '../../components/MovieList';
 import Header from '../../components/Headers';
 
@@ -26,8 +26,17 @@ import {
 import { Logo } from '~/svgs';
 
 const MovieDetailView = (props) => {
-  const { discoverList, movieDetail, buttonsView } = props;
-  const discoverMovies = discoverList.slice(0, 12);
+  const { suggestionList, movieDetail, buttonsView } = props;
+
+  const setVoteColor = (vote) => {
+    if (vote >= 8) {
+      return <Score style={{ color: 'green' }}>{vote}</Score>;
+    }
+    if (vote >= 6) {
+      return <Score style={{ color: 'orange' }}>{vote}</Score>;
+    }
+    return <Score style={{ color: 'red' }}>{vote}</Score>;
+  };
 
   return (
     <Container>
@@ -53,10 +62,8 @@ const MovieDetailView = (props) => {
         <Content>
           <Wrapper>
             <Logo width={26} height={30} />
-            <Badge header>FILME</Badge>
-            <Average>
-              <Score>{movieDetail?.vote_average}</Score>
-            </Average>
+            <Badge>FILME</Badge>
+            <Average>{setVoteColor(movieDetail?.vote_average)}</Average>
           </Wrapper>
           <Title>{movieDetail?.original_title}</Title>
           <Description>{movieDetail?.overview}</Description>
@@ -64,7 +71,7 @@ const MovieDetailView = (props) => {
             <ButtonText>Assistir</ButtonText>
           </Play> */}
           <PlayButton onPress={() => {}}>
-            <Text>Assistir</Text>
+            <Text>Assistir agora</Text>
           </PlayButton>
           <Wrapper style={{ paddingBottom: 16, paddingTop: 16 }}>
             {buttonsView.map((item, index) => {
@@ -81,8 +88,9 @@ const MovieDetailView = (props) => {
           </Wrapper>
           <Line />
         </Content>
+
         <MovieList
-          movies={discoverMovies}
+          movies={suggestionList}
           title="Recomendados para você"
           columns={3}
         />

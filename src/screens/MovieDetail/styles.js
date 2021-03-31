@@ -36,6 +36,7 @@ export const Image = styled.Image.attrs({
 export const Average = styled.View`
   width: 54px;
   height: 30px;
+  background: ${(props) => props.theme.semiTransparent};
   border: ${(props) => props.theme.bordercolor};
   border-radius: 6px;
   position: absolute;
@@ -82,11 +83,11 @@ export const InfoWrapper = styled.View`
 
 export const Badge = styled.Text`
   color: ${(props) => props.theme.white};
-  font-size: ${(props) => (props.header ? 14 : 16)};
+  font-size: 16px;
   opacity: 0.35;
-  font-weight: ${(props) => (props.header ? 500 : 400)};
-  letter-spacing: ${(props) => (props.header ? 4 : 0)};
-  margin-left: ${(props) => (props.header ? 8 : 0)};
+  font-weight: 500;
+  letter-spacing: 3;
+  margin-left: 8px;
 `;
 
 export const Rating = styled.Text`
@@ -131,6 +132,6 @@ export const PlayButton = styled.TouchableOpacity`
 
 export const Text = styled.Text`
   color: ${(props) => props.theme.text};
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 `;
