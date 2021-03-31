@@ -8,11 +8,13 @@ export const Gradient = styled(LinearGradient)`
   position: absolute;
   z-index: 10;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const HeaderWrapper = styled.View`
   width: 100%;
-  padding: 8px 16px 4px;
+  padding: 8px 16px 0px;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { Gradient, HeaderWrapper, Text, PressArea } from './styles';
-
-import { Logo, ChevronRight, Back } from '~/svgs';
+import { Logo, ChevronRight, Back, Globe } from '~/svgs';
 
 const HeaderHome = () => {
   const insets = useSafeAreaInsets();
@@ -20,12 +20,16 @@ const HeaderHome = () => {
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}>
       <Logo width={42} height={36} />
+      <PressArea>
+        <Globe width={24} height={24} />
+      </PressArea>
     </Gradient>
   );
 };
 
 const HeaderPreview = () => {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
 
   return (
     <Gradient
@@ -38,7 +42,7 @@ const HeaderPreview = () => {
       ]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}>
-      <PressArea>
+      <PressArea onPress={navigation.goBack}>
         <Back width={28} height={28} />
       </PressArea>
     </Gradient>
