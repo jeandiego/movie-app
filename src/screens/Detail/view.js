@@ -1,7 +1,8 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import MovieList from '../../components/MovieList';
 import Header from '../../components/Headers';
+import useColors from '../../hooks/colors';
 
 import {
   Container,
@@ -25,17 +26,19 @@ import {
 } from './styles';
 import { Logo } from '~/svgs';
 
-const MovieDetailView = (props) => {
+const DetailView = (props) => {
   const { suggestionList, movieDetail, buttonsView } = props;
+  const colors = useColors();
+  const similarList = suggestionList.slice(0, 12);
 
   const setVoteColor = (vote) => {
     if (vote >= 8) {
-      return <Score style={{ color: 'green' }}>{vote}</Score>;
+      return <Score style={{ color: colors.positive }}>{vote}</Score>;
     }
     if (vote >= 6) {
-      return <Score style={{ color: 'orange' }}>{vote}</Score>;
+      return <Score style={{ color: colors.feature }}>{vote}</Score>;
     }
-    return <Score style={{ color: 'red' }}>{vote}</Score>;
+    return <Score style={{ color: colors.negative }}>{vote}</Score>;
   };
 
   return (
@@ -65,11 +68,8 @@ const MovieDetailView = (props) => {
             <Badge>FILME</Badge>
             <Average>{setVoteColor(movieDetail?.vote_average)}</Average>
           </Wrapper>
-          <Title>{movieDetail?.original_title}</Title>
+          <Title>{movieDetail?.title}</Title>
           <Description>{movieDetail?.overview}</Description>
-          {/* <Play onPress={() => {}}>
-            <ButtonText>Assistir</ButtonText>
-          </Play> */}
           <PlayButton onPress={() => {}}>
             <Text>Assistir agora</Text>
           </PlayButton>
@@ -90,7 +90,7 @@ const MovieDetailView = (props) => {
         </Content>
 
         <MovieList
-          movies={suggestionList}
+          movies={similarList}
           title="Recomendados para você"
           columns={3}
         />
@@ -99,4 +99,4 @@ const MovieDetailView = (props) => {
   );
 };
 
-export default MovieDetailView;
+export default DetailView;

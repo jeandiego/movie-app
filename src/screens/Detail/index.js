@@ -4,7 +4,7 @@ import MovieDetailView from './view';
 import { getMovieDetail, getSuggestion } from '../../controller/movies';
 import { Add, Like, Send } from '~/svgs';
 
-const MovieDetail = () => {
+const Detail = () => {
   const movieRoute = useRoute();
   const [suggestionList, setSuggestionList] = useState([]);
   const [movieDetail, setMovieDetail] = useState(movieRoute?.params?.movie);
@@ -56,4 +56,4 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default Detail;

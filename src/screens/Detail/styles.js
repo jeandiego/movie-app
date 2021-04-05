@@ -36,7 +36,7 @@ export const Image = styled.Image.attrs({
 export const Average = styled.View`
   width: 54px;
   height: 30px;
-  background: ${(props) => props.theme.semiTransparent};
+  /* background: ${(props) => props.theme.semiTransparent}; */
   border: ${(props) => props.theme.bordercolor};
   border-radius: 6px;
   position: absolute;
@@ -69,7 +69,9 @@ export const Wrapper = styled.View`
 
 export const MovieWrapper = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: 'false',
-})``;
+})`
+  flex: 1;
+`;
 
 export const Content = styled.View`
   padding: 0 16px;
@@ -86,7 +88,7 @@ export const Badge = styled.Text`
   font-size: 16px;
   opacity: 0.35;
   font-weight: 500;
-  letter-spacing: 3;
+  letter-spacing: 2px;
   margin-left: 8px;
 `;
 
