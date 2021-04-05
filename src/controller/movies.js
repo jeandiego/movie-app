@@ -6,7 +6,7 @@ export const getTrending = async () => {
     console.log('Success Trendings');
     return response.data.results;
   } catch (error) {
-    console.error('Trending wasn`t find');
+    // console.error('Trending wasn`t find');
     return [];
   }
 };
@@ -17,7 +17,7 @@ export const getPopular = async () => {
     console.log('Success Popular');
     return response.data.results;
   } catch (error) {
-    console.error('Popular wasn`t find');
+    // console.error('Popular wasn`t find');
     return [];
   }
 };
@@ -28,7 +28,7 @@ export const getNowPlaying = async () => {
     console.log('Success NowPlaying');
     return response.data.results;
   } catch (error) {
-    console.error('Now Playing wasn`t find');
+    // console.error('Now Playing wasn`t find');
     return [];
   }
 };
@@ -39,7 +39,7 @@ export const getDiscover = async () => {
     console.log('Success Discover');
     return response.data.results;
   } catch (error) {
-    console.error('Discover wasn`t find');
+    // console.error('Discover wasn`t find');
     return [];
   }
 };
@@ -50,7 +50,7 @@ export const getSuggestion = async (movieId) => {
     console.log('Success Similar');
     return response.data.results;
   } catch (error) {
-    console.error('No similar movies');
+    // console.error('No similar movies');
     return [];
   }
 };
@@ -61,7 +61,7 @@ export const getMovieDetail = async (movieId) => {
     // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.error('Movie wasn`t find');
+    // console.error('Movie wasn`t find');
     return [];
   }
 };

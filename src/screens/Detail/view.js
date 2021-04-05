@@ -36,7 +36,7 @@ const DetailView = (props) => {
       return <Score style={{ color: colors.positive }}>{vote}</Score>;
     }
     if (vote >= 6) {
-      return <Score style={{ color: colors.feature }}>{vote}</Score>;
+      return <Score style={{ color: colors.medium }}>{vote}</Score>;
     }
     return <Score style={{ color: colors.negative }}>{vote}</Score>;
   };

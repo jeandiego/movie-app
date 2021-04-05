@@ -15,8 +15,8 @@ const GlobalStyle = {
   semiTransparent: 'rgba(0,0,0,0.3)',
 
   positive: '#22CD5A',
+  medium: '#FFB800',
   negative: '#FF583F',
-  feature: '#FFB800',
 };
 
 export default GlobalStyle;
