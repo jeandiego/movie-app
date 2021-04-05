@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export const Gradient = styled(LinearGradient)`
   flex-direction: row;
   padding: 16px;
-  padding-top: ${(props) => props.safeArea.top + 8}px;
+  padding-top: ${(props) => props.safeArea.top + 16}px;
   position: absolute;
   z-index: 10;
   width: 100%;

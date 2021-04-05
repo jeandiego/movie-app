@@ -1,6 +1,7 @@
 const GlobalStyle = {
   background: '#171721',
   primary: '#DA1A37',
+  secondary: '#1F1F2E',
 
   text: '#FEFEFE',
   description: '#76767C',

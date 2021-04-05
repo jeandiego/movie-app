@@ -12,9 +12,9 @@ const HeaderHome = () => {
     <Gradient
       safeArea={insets}
       colors={[
-        'rgba(23,23,33,1)',
-        'rgba(23,23,33,0.8)',
-        'rgba(23,23,33,0.6)',
+        'rgba(0,0,0,1)',
+        'rgba(0,0,0,0.9)',
+        'rgba(0,0,0,0.6)',
         'rgba(0,0,0,0)',
       ]}
       start={{ x: 0, y: 0 }}
@@ -35,9 +35,9 @@ const HeaderPreview = () => {
     <Gradient
       safeArea={insets}
       colors={[
-        'rgba(23,23,33,1)',
-        'rgba(23,23,33,0.8)',
-        'rgba(23,23,33,0.6)',
+        'rgba(0,0,0,1)',
+        'rgba(0,0,0,0.8)',
+        'rgba(0,0,0,0.6)',
         'rgba(0,0,0,0)',
       ]}
       start={{ x: 0, y: 0 }}
