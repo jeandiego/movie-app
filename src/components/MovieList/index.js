@@ -10,7 +10,7 @@ const MovieList = ({ movies, title, highlights, horizontal, columns }) => {
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
   function goToDetail(movie) {
-    navigation.navigate('Preview', { movie });
+    navigation.navigate('Detail', { movie });
   }
 
   return (

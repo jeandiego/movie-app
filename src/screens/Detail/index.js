@@ -20,24 +20,6 @@ const Detail = () => {
     setSuggestionList(similarMovies);
   }
 
-  const buttonsView = [
-    {
-      text: 'Minha lista',
-      icon: Add,
-      onPress: () => {},
-    },
-    {
-      text: 'Gostei',
-      icon: Like,
-      onPress: () => {},
-    },
-    {
-      text: 'Compartilhar',
-      icon: Send,
-      onPress: () => {},
-    },
-  ];
-
   async function Inicialize() {
     await getSelectedMovieDetail();
     await getSuggestionList();
@@ -51,7 +33,6 @@ const Detail = () => {
     <MovieDetailView
       suggestionList={suggestionList}
       movieDetail={movieDetail}
-      buttonsView={buttonsView}
     />
   );
 };

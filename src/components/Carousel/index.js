@@ -18,8 +18,8 @@ const Carousel = ({ movies, genres }) => {
   const navigation = useNavigation();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
-  function onPress() {
-    navigation.navigate('Preview');
+  function goToDetail(movie) {
+    navigation.navigate('Detail', { movie });
   }
 
   return (
@@ -61,7 +61,7 @@ const Carousel = ({ movies, genres }) => {
                     <Title numberOfLines={1}>{item.title}</Title>
 
                     <Genres>{genresFiltered}</Genres>
-                    <WatchButton onPress={onPress}>
+                    <WatchButton onPress={() => goToDetail(item)}>
                       <Text>Assistir</Text>
                     </WatchButton>
                   </InfoWrapper>

@@ -72,7 +72,7 @@ const Routes = () => {
         <Stack.Screen name="Main" component={MainRoutes} />
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Preview" component={Detail} />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
