@@ -7,3 +7,7 @@ export { default as Back } from './arrow-left';
 export { default as LargeLogo } from './logo-large';
 export { default as LogoName } from './logo-name';
 export { default as Globe } from './globe';
+export { default as SearchIcon } from './search';
+export { default as Calendar } from './calendar';
+export { default as TvShow } from './tv';
+export { default as Movie } from './movie';
