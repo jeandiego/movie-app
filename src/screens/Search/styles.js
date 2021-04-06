@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.View`
-  background: ${(props) => props.theme.primary};
+  background: ${(props) => props.theme.background};
   flex: 1;
   justify-content: center;
   align-items: center;

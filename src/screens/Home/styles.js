@@ -8,7 +8,7 @@ export const Container = styled.ScrollView.attrs({
 `;
 
 export const MovieView = styled.View`
-  padding-bottom: ${(props) => props.safeArea.bottom + 16}px;
+  padding-bottom: ${(props) => props.safeArea.bottom + 64}px;
 `;
 
 export const Title = styled.Text`

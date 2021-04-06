@@ -8,7 +8,7 @@ import Detail from '../screens/Detail';
 import Series from '../screens/Series';
 import Search from '../screens/Search';
 import { useColors } from '../hooks';
-import { Add } from '~/svgs';
+import { Movie, TvShow, SearchIcon, Calendar } from '~/svgs';
 
 const Stack = createStackNavigator();
 const Tabs = AnimatedTabBarNavigator();
@@ -34,7 +34,13 @@ const MainRoutes = () => {
         component={Home}
         options={{
           tabBarLabel: 'Filmes',
-          tabBarIcon: () => <Add width={24} height={24} />,
+          tabBarIcon: ({ focused }) => (
+            <Movie
+              width={24}
+              height={24}
+              color={focused ? colors.white : null}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -42,7 +48,13 @@ const MainRoutes = () => {
         component={Series}
         options={{
           tabBarLabel: 'Series',
-          tabBarIcon: () => <Add width={24} height={24} />,
+          tabBarIcon: ({ focused }) => (
+            <TvShow
+              width={24}
+              height={24}
+              color={focused ? colors.white : null}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -50,7 +62,13 @@ const MainRoutes = () => {
         component={Search}
         options={{
           tabBarLabel: 'Buscar',
-          tabBarIcon: () => <Add width={24} height={24} />,
+          tabBarIcon: ({ focused }) => (
+            <SearchIcon
+              width={24}
+              height={24}
+              color={focused ? colors.white : null}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -58,7 +76,13 @@ const MainRoutes = () => {
         component={Search}
         options={{
           tabBarLabel: 'Em breve',
-          tabBarIcon: () => <Add width={24} height={24} />,
+          tabBarIcon: ({ focused }) => (
+            <Calendar
+              width={24}
+              height={24}
+              color={focused ? colors.white : null}
+            />
+          ),
         }}
       />
     </Tabs.Navigator>
