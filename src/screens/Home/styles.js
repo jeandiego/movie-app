@@ -15,3 +15,12 @@ export const Title = styled.Text`
   color: ${(props) => props.theme.text};
   font-size: 36px;
 `;
+
+export const Loading = styled.ActivityIndicator.attrs({
+  size: 'large',
+  color: 'red',
+})`
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;

@@ -18,6 +18,7 @@ const Home = () => {
   const [suggestionList, setSuggestionList] = useState([]);
   const [genresList, setGenresList] = useState([]);
   const [currentLanguage, setCurrentLanguage] = useState('pt');
+  const [loading, setLoading] = useState(false);
 
   async function getTrendingList() {
     const trendingMovieList = await getTrending();
@@ -61,12 +62,14 @@ const Home = () => {
   }
 
   async function Inicialize() {
+    setLoading(true);
     await getGenresList();
     await getDiscoverList();
     await getTrendingList();
     await getPopularList();
     await getNowPlayingList();
     await getSuggestionList();
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -75,6 +78,7 @@ const Home = () => {
 
   return (
     <HomeView
+      loading={loading}
       ChangeLanguage={ChangeLanguage}
       trendingList={trendingList}
       popularList={popularList}

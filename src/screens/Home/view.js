@@ -3,7 +3,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MovieList from '../../components/MovieList';
-import { Container, MovieView } from './styles';
+import { Container, MovieView, Loading } from './styles';
 import Header from '../../components/Headers';
 import Carousel from '../../components/Carousel';
 
@@ -16,40 +16,44 @@ const HomeView = (props) => {
     suggestionList,
     genresList,
     ChangeLanguage,
+    loading,
   } = props;
   const insets = useSafeAreaInsets();
 
   return (
-    <Container safeArea={insets}>
-      <Header type="Home" />
-      <StatusBar barStyle="light-content" />
-      <Carousel
-        movies={discoverList}
-        genres={genresList}
-        ChangeLanguage={ChangeLanguage}
-      />
-      <MovieView safeArea={insets}>
-        <MovieList
+    <>
+      <Container safeArea={insets}>
+        {loading && <Loading />}
+        <Header type="Home" />
+        <StatusBar barStyle="light-content" />
+        <Carousel
           movies={discoverList}
-          title="Descubra também"
-          highlights
-          horizontal
+          genres={genresList}
+          ChangeLanguage={ChangeLanguage}
         />
-        <MovieList movies={trendingList} title="Em alta" horizontal />
-        <MovieList movies={popularList} title="Populares" horizontal />
-        <MovieList
-          movies={nowPlayingList}
-          title="Assistindo agora"
-          highlights
-          horizontal
-        />
-        <MovieList
-          movies={nowPlayingList}
-          title="Recomendados para você"
-          horizontal
-        />
-      </MovieView>
-    </Container>
+        <MovieView safeArea={insets}>
+          <MovieList
+            movies={discoverList}
+            title="Descubra também"
+            highlights
+            horizontal
+          />
+          <MovieList movies={trendingList} title="Em alta" horizontal />
+          <MovieList movies={popularList} title="Populares" horizontal />
+          <MovieList
+            movies={nowPlayingList}
+            title="Assistindo agora"
+            highlights
+            horizontal
+          />
+          <MovieList
+            movies={nowPlayingList}
+            title="Recomendados para você"
+            horizontal
+          />
+        </MovieView>
+      </Container>
+    </>
   );
 };
 
