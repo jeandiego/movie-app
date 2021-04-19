@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import MovieDetailView from './view';
 import { getMovieDetail, getSuggestion } from '../../controller/movies';
-import { Add, Like, Send } from '~/svgs';
 
 const Detail = () => {
   const movieRoute = useRoute();
