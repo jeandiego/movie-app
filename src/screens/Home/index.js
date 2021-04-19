@@ -46,7 +46,7 @@ const Home = () => {
   }
 
   async function getGenresList() {
-    const genresMovieList = await getGenres();
+    const genresMovieList = await getGenres('movie');
     setGenresList(genresMovieList);
   }
 

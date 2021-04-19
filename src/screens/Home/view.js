@@ -2,7 +2,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import MovieList from '../../components/MovieList';
+import List from '../../components/List';
 import { Container, MovieView, Loading } from './styles';
 import Header from '../../components/Headers';
 import Carousel from '../../components/Carousel';
@@ -27,27 +27,27 @@ const HomeView = (props) => {
         <Header type="Home" />
         <StatusBar barStyle="light-content" />
         <Carousel
-          movies={discoverList}
+          list={discoverList}
           genres={genresList}
           ChangeLanguage={ChangeLanguage}
         />
         <MovieView safeArea={insets}>
-          <MovieList
-            movies={discoverList}
+          <List
+            list={discoverList}
             title="Descubra também"
             highlights
             horizontal
           />
-          <MovieList movies={trendingList} title="Em alta" horizontal />
-          <MovieList movies={popularList} title="Populares" horizontal />
-          <MovieList
-            movies={nowPlayingList}
+          <List list={trendingList} title="Em alta" horizontal />
+          <List list={popularList} title="Populares" horizontal />
+          <List
+            list={nowPlayingList}
             title="Assistindo agora"
             highlights
             horizontal
           />
-          <MovieList
-            movies={nowPlayingList}
+          <List
+            list={nowPlayingList}
             title="Recomendados para você"
             horizontal
           />
