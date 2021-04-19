@@ -22,10 +22,10 @@ import {
 import useColors from '../../hooks/colors';
 import { Logo, Add, Like, Send } from '~/svgs';
 
-const DetailHeader = ({ movieDetail }) => {
+const DetailHeader = ({ detail }) => {
   const colors = useColors();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
-  const uri = `${ImgUrl}${movieDetail?.poster_path}`;
+  const uri = `${ImgUrl}${detail?.poster_path}`;
 
   const setVoteColor = (vote) => {
     if (vote >= 8) {
@@ -78,10 +78,10 @@ const DetailHeader = ({ movieDetail }) => {
         <Wrapper>
           <Logo width={26} height={30} />
           <Badge>FILME</Badge>
-          <Average>{setVoteColor(movieDetail?.vote_average)}</Average>
+          <Average>{setVoteColor(detail?.vote_average)}</Average>
         </Wrapper>
-        <Title>{movieDetail?.title}</Title>
-        <Description>{movieDetail?.overview}</Description>
+        <Title>{detail?.title ? detail?.title : detail?.name}</Title>
+        <Description>{detail?.overview}</Description>
         <PlayButton onPress={() => {}}>
           <Text>Assistir agora</Text>
         </PlayButton>

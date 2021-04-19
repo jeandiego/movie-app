@@ -14,7 +14,7 @@ import {
   Text,
 } from './styles';
 
-const Carousel = ({ movies, genres }) => {
+const Carousel = ({ list, genres }) => {
   const navigation = useNavigation();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
@@ -25,7 +25,7 @@ const Carousel = ({ movies, genres }) => {
   return (
     <Container>
       <FlatList
-        data={movies}
+        data={list}
         keyExtractor={(item) => item.id}
         horizontal
         pagingEnabled
@@ -58,8 +58,9 @@ const Carousel = ({ movies, genres }) => {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 0, y: 1 }}>
                   <InfoWrapper>
-                    <Title numberOfLines={1}>{item.title}</Title>
-
+                    <Title numberOfLines={1}>
+                      {item.title ? item.title : item.name}
+                    </Title>
                     <Genres>{genresFiltered}</Genres>
                     <WatchButton onPress={() => goToDetail(item)}>
                       <Text>Assistir</Text>
