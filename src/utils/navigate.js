@@ -1,6 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
+import * as RootNavigation from '../routes/RootNavigation';
 
 export function goToDetail(movie) {
-  const navigation = useNavigation();
-  navigation.navigate('Preview', { movie });
+  RootNavigation.navigate('Detail', { movie });
 }
