@@ -11,9 +11,9 @@ export const getTrending = async () => {
   }
 };
 
-export const getPopular = async () => {
+export const getPopular = async (type) => {
   try {
-    const response = await api.get('movie/popular');
+    const response = await api.get(`${type}/popular`);
     console.log('Success Popular');
     return response.data.results;
   } catch (error) {
@@ -44,9 +44,9 @@ export const getDiscover = async () => {
   }
 };
 
-export const getSuggestion = async (movieId) => {
+export const getSuggestion = async (itemId) => {
   try {
-    const response = await api.get(`movie/${movieId}/similar`);
+    const response = await api.get(`movie/${itemId}/similar`);
     console.log('Success Similar');
     return response.data.results;
   } catch (error) {

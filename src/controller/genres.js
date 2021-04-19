@@ -1,8 +1,8 @@
 import api from '../api';
 
-export const getGenres = async () => {
+export const getGenres = async (item) => {
   try {
-    const response = await api.get(`genre/movie/list`);
+    const response = await api.get(`genre/${item}/list`);
     console.log('Succces to get genres');
     return response.data.genres;
   } catch (error) {
