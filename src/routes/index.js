@@ -9,6 +9,7 @@ import Series from '../screens/Series';
 import Search from '../screens/Search';
 import { useColors } from '../hooks';
 import { Movie, TvShow, SearchIcon, Calendar } from '~/svgs';
+import { navigationRef } from './RootNavigation';
 
 const Stack = createStackNavigator();
 const Tabs = AnimatedTabBarNavigator();
@@ -91,7 +92,7 @@ const MainRoutes = () => {
 
 const Routes = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Main" component={MainRoutes} />
         <Stack.Screen name="Splash" component={Splash} />
