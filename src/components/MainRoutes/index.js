@@ -14,7 +14,7 @@ const MainRoutes = () => {
   return (
     <Tabs.Navigator
       appearance={{
-        floating: true,
+        floating: false,
         tabBarBackground: colors.secondary,
         whenActiveShow: 'both',
         whenInactiveShow: 'icon-only',
