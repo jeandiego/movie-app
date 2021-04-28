@@ -7,20 +7,7 @@ export const Container = styled.ScrollView.attrs({
   background: ${(props) => props.theme.background};
 `;
 
-export const MovieView = styled.View`
-  padding-bottom: ${(props) => props.safeArea.bottom + 64}px;
-`;
-
 export const Title = styled.Text`
   color: ${(props) => props.theme.text};
   font-size: 36px;
-`;
-
-export const Loading = styled.ActivityIndicator.attrs({
-  size: 'large',
-  color: 'red',
-})`
-  height: 100%;
-  justify-content: center;
-  align-items: center;
 `;
