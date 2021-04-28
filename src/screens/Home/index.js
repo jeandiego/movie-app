@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 import {
+  getAiringToday,
   getDiscover,
+  getLatest,
   getNowPlaying,
+  getOnTheAir,
   getPopular,
   getSuggestion,
+  getTopRated,
   getTrending,
 } from '../../controller/movies';
 import { getGenres } from '../../controller/genres';
@@ -17,31 +22,51 @@ const Home = () => {
   const [discoverList, setDiscoverList] = useState([]);
   const [suggestionList, setSuggestionList] = useState([]);
   const [genresList, setGenresList] = useState([]);
+  const [topRatedList, setTopRatedList] = useState([]);
+  const [airingToday, setAiringToday] = useState([]);
+  const [onAirNow, setOnAirNow] = useState([]);
   const [currentLanguage, setCurrentLanguage] = useState('pt');
   const [loading, setLoading] = useState(false);
+  const myRoute = useRoute();
+  const isTv = myRoute?.name === 'Series';
+
+  async function getTopRatedList() {
+    const topRatedItem = await getTopRated(isTv);
+    setTopRatedList(topRatedItem);
+  }
+
+  async function getOnAirNow() {
+    const onTheAir = await getOnTheAir();
+    setOnAirNow(onTheAir);
+  }
+
+  async function getAiringTodayList() {
+    const airingTodayList = await getAiringToday();
+    setAiringToday(airingTodayList);
+  }
 
   async function getTrendingList() {
-    const trendingMovieList = await getTrending();
+    const trendingMovieList = await getTrending(isTv);
     setTrendingList(trendingMovieList);
   }
 
   async function getPopularList() {
-    const popularMovieList = await getPopular();
+    const popularMovieList = await getPopular(isTv);
     setPopularList(popularMovieList);
   }
 
   async function getNowPlayingList() {
-    const nowPlayingMovieList = await getNowPlaying();
+    const nowPlayingMovieList = await getNowPlaying(isTv);
     setNowPlayingList(nowPlayingMovieList);
   }
 
   async function getDiscoverList() {
-    const discoverMovieList = await getDiscover();
+    const discoverMovieList = await getDiscover(isTv);
     setDiscoverList(discoverMovieList);
   }
 
   async function getSuggestionList() {
-    const suggestionMovieList = await getSuggestion();
+    const suggestionMovieList = await getSuggestion(isTv);
     setSuggestionList(suggestionMovieList);
   }
 
@@ -69,6 +94,9 @@ const Home = () => {
     await getPopularList();
     await getNowPlayingList();
     await getSuggestionList();
+    await getAiringTodayList();
+    await getTopRatedList();
+    await getOnAirNow();
     setLoading(false);
   }
 
@@ -79,8 +107,12 @@ const Home = () => {
   return (
     <HomeView
       loading={loading}
+      isTv={isTv}
+      onAirNow={onAirNow}
       ChangeLanguage={ChangeLanguage}
+      topRatedList={topRatedList}
       trendingList={trendingList}
+      airingToday={airingToday}
       popularList={popularList}
       nowPlayingList={nowPlayingList}
       discoverList={discoverList}

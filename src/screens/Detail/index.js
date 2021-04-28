@@ -7,15 +7,15 @@ const Detail = () => {
   const movieRoute = useRoute();
   const [suggestionList, setSuggestionList] = useState([]);
   const [movieDetail, setMovieDetail] = useState(movieRoute?.params?.movie);
-  const movie = movieRoute?.params?.movie;
+  const item = movieRoute?.params?.movie;
 
   async function getSelectedMovieDetail() {
-    const selectedMovieDetail = await getMovieDetail(movie.id);
+    const selectedMovieDetail = await getMovieDetail(item.id, !!item?.name);
     setMovieDetail(selectedMovieDetail);
   }
 
   async function getSuggestionList() {
-    const similarMovies = await getSuggestion(movie.id);
+    const similarMovies = await getSuggestion(item.id);
     setSuggestionList(similarMovies);
   }
 
@@ -26,7 +26,7 @@ const Detail = () => {
 
   useEffect(() => {
     Inicialize();
-  }, [movie]);
+  }, [item]);
 
   return (
     <MovieDetailView

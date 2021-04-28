@@ -13,10 +13,13 @@ const HomeView = (props) => {
     popularList,
     nowPlayingList,
     discoverList,
-    suggestionList,
+    topRatedList,
+    airingToday,
+    onAirNow,
     genresList,
     ChangeLanguage,
     loading,
+    isTv,
   } = props;
   const insets = useSafeAreaInsets();
 
@@ -32,25 +35,17 @@ const HomeView = (props) => {
           ChangeLanguage={ChangeLanguage}
         />
         <MovieView safeArea={insets}>
+          <List list={trendingList} title="Em alta" highlights horizontal />
           <List
-            list={discoverList}
-            title="Descubra também"
-            highlights
+            list={isTv ? airingToday : nowPlayingList}
+            title={`${isTv ? 'Assistidos hoje' : 'Assistindo agora'}`}
             horizontal
           />
-          <List list={trendingList} title="Em alta" horizontal />
-          <List list={popularList} title="Populares" horizontal />
-          <List
-            list={nowPlayingList}
-            title="Assistindo agora"
-            highlights
-            horizontal
-          />
-          <List
-            list={nowPlayingList}
-            title="Recomendados para você"
-            horizontal
-          />
+          {isTv && <List list={onAirNow} title="Assistindo agora" horizontal />}
+          {!isTv && (
+            <List list={popularList} title="Mais populares" horizontal />
+          )}
+          <List list={topRatedList} title="Melhores notas" horizontal />
         </MovieView>
       </Container>
     </>
