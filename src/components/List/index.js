@@ -28,7 +28,12 @@ const MovieList = ({ list, title, highlights, horizontal, columns }) => {
           const uri = `${ImgUrl}${item.poster_path}`;
 
           return (
-            <Container highlights={highlights} onPress={() => goToDetail(item)}>
+            <Container
+              highlights={highlights}
+              onPress={() => {
+                console.log(item);
+                goToDetail(item);
+              }}>
               <Image
                 highlights={highlights}
                 source={{

@@ -25,7 +25,7 @@ import { Logo, Add, Like, Send } from '~/svgs';
 const DetailHeader = ({ detail }) => {
   const colors = useColors();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
-  const uri = `${ImgUrl}${detail?.poster_path}`;
+  const uri = `${ImgUrl}${detail?.backdrop_path}`;
 
   const setVoteColor = (vote) => {
     if (vote >= 8) {
@@ -80,7 +80,7 @@ const DetailHeader = ({ detail }) => {
           <Badge>FILME</Badge>
           <Average>{setVoteColor(detail?.vote_average)}</Average>
         </Wrapper>
-        <Title>{detail?.title ? detail?.title : detail?.name}</Title>
+        <Title>{detail?.title || detail?.name}</Title>
         <Description>{detail?.overview}</Description>
         <PlayButton onPress={() => {}}>
           <Text>Assistir agora</Text>

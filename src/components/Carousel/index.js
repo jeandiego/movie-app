@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
 import {
   Container,
   Image,
@@ -13,14 +12,10 @@ import {
   WatchButton,
   Text,
 } from './styles';
+import { goToDetail } from '../../utils/navigate';
 
 const Carousel = ({ list, genres }) => {
-  const navigation = useNavigation();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
-
-  function goToDetail(movie) {
-    navigation.navigate('Detail', { movie });
-  }
 
   return (
     <Container>
@@ -31,14 +26,14 @@ const Carousel = ({ list, genres }) => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
-          const uri = `${ImgUrl}${item.backdrop_path}`;
-          const genreFound = item.genre_ids.map((genreID) => {
-            const genreMatch = genres.find((genre) => {
-              return genreID === genre.id;
+          const uri = `${ImgUrl}${item?.backdrop_path}`;
+          const genreFound = item?.genre_ids?.map((genreID) => {
+            const genreMatch = genres?.find((genre) => {
+              return genreID === genre?.id;
             });
-            return genreMatch.name;
+            return genreMatch?.name;
           });
-          const genresFiltered = genreFound.splice(0, 1);
+          const genresFiltered = genreFound?.splice(0, 1);
 
           return (
             <>
@@ -62,7 +57,11 @@ const Carousel = ({ list, genres }) => {
                       {item.title ? item.title : item.name}
                     </Title>
                     <Genres>{genresFiltered}</Genres>
-                    <WatchButton onPress={() => goToDetail(item)}>
+                    <WatchButton
+                      onPress={() => {
+                        console.log(item);
+                        goToDetail(item);
+                      }}>
                       <Text>Assistir</Text>
                     </WatchButton>
                   </InfoWrapper>

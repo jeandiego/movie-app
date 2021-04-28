@@ -5,12 +5,13 @@ import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('screen');
 
 export const Container = styled.View`
-  height: ${`${height / 1.6}px`};
+  height: ${`${height / 2}px`};
 `;
 
 export const Image = styled.Image.attrs({
   resizeMode: 'cover',
 })`
+  top: 25px;
   width: 100%;
   height: 100%;
   z-index: 9;
@@ -57,9 +58,9 @@ export const Genres = styled.Text`
 
 export const WatchButton = styled.TouchableOpacity`
   background: ${(props) => props.theme.primary};
-  width: 100%;
+  width: 75%;
+  padding: 12px 0px;
   border-radius: 6px;
-  flex: 0.3;
   align-items: center;
   justify-content: center;
 `;
