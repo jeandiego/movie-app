@@ -1,7 +1,7 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
+
 import { SearchIcon } from '~/svgs';
-import { InputArea, InputSearch } from './styles';
+import { InputArea, InputSearch, Loading } from './styles';
 
 const SearchInput = ({ value, onChangeText, loading, placeholder }) => {
   return (
@@ -12,7 +12,7 @@ const SearchInput = ({ value, onChangeText, loading, placeholder }) => {
         value={value}
         onChangeText={onChangeText}
       />
-      {loading && <ActivityIndicator />}
+      {loading && <Loading style={{ color: 'red' }} />}
     </InputArea>
   );
 };

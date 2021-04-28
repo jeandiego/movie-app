@@ -25,3 +25,11 @@ export const InputSearch = styled.TextInput.attrs({
   padding: 0 8px;
   color: ${(props) => props.theme.white};
 `;
+
+export const Loading = styled.ActivityIndicator.attrs({
+  color: 'red',
+})`
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
