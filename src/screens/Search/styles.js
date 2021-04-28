@@ -19,6 +19,13 @@ export const Text = styled.Text`
   padding: 16px 0;
 `;
 
+export const Title = styled.Text`
+  font-size: 22px;
+  font-weight: 600;
+  color: ${(props) => props.theme.white};
+  padding: 16px;
+`;
+
 export const InputArea = styled.View`
   height: 52px;
   margin: 0 16px;

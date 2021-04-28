@@ -1,22 +1,27 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Container, Text, Image, View, Wrapper } from './styles';
+import { Container, Text, Image, View, Wrapper, Title } from './styles';
 import SearchInput from '../../components/SearchInput';
 import { goToDetail } from '../../utils/navigate';
-import List from '../../components/List';
+import useColors from '../../hooks/colors';
 
 const SearchView = (props) => {
   const { foundList, trendingList, searchName, onChangeText, loading } = props;
+  const colors = useColors();
 
   const SearchResult = ({ item }) => {
     const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
-    const uri = `${ImgUrl}${item?.backdrop_path}`;
+    const uri = `${ImgUrl}${
+      item?.backdrop_path ? item?.backdrop_path : item?.poster_path
+    }`;
 
     return (
       <View onPress={() => goToDetail(item)}>
         <Image source={{ uri }} />
         <Wrapper>
-          <Text numberOfLines={2}>{item?.title}</Text>
+          <Text numberOfLines={2}>
+            {item?.title ? item?.title : item?.name}
+          </Text>
         </Wrapper>
       </View>
     );
@@ -26,8 +31,7 @@ const SearchView = (props) => {
     return (
       <View>
         <Text description>
-          Ops, não conseguimos encontrar nada relacionado na sua busca. Explore
-          nossos titulos mais populares abaixo
+          Ops, não conseguimos encontrar nada relacionado na sua busca.
         </Text>
       </View>
     );
@@ -35,16 +39,17 @@ const SearchView = (props) => {
 
   return (
     <Container>
+      <Title>Encontre seu filme</Title>
       <SearchInput
         placeholder="Nome do filme ou série"
         value={searchName}
         onChangeText={onChangeText}
         loading={loading}
       />
+
       <FlatList
         data={foundList}
         keyExtractor={(item) => item?.id}
-        showsHorizontalScrollIndicator={false}
         style={{
           flex: 1,
         }}
@@ -53,7 +58,25 @@ const SearchView = (props) => {
         }}
         ListEmptyComponent={<>{searchName !== '' && <SearchHeader />}</>}
         ListFooterComponent={
-          <List list={trendingList} title="Em alta" horizontal highlights />
+          <>
+            {searchName === '' && (
+              <FlatList
+                data={trendingList}
+                keyExtractor={(item) => item?.id}
+                style={{
+                  flex: 1,
+                }}
+                renderItem={({ item }) => {
+                  return <SearchResult item={item} onPress={item} />;
+                }}
+                ListHeaderComponent={
+                  <Text style={{ paddingLeft: 16, color: colors.description }}>
+                    Mais procurados agora
+                  </Text>
+                }
+              />
+            )}
+          </>
         }
       />
     </Container>
