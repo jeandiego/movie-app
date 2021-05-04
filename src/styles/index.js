@@ -13,6 +13,7 @@ const GlobalStyle = {
   black: '#000000',
   transparent: '#00000000',
   semiTransparent: 'rgba(0,0,0,0.3)',
+  darkTransparent: 'rgba(0,0,0,0.45)',
 
   positive: '#22CD5A',
   medium: '#FFB800',
