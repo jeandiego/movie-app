@@ -46,7 +46,6 @@ const SearchView = (props) => {
         onChangeText={onChangeText}
         loading={loading}
       />
-
       <FlatList
         data={foundList}
         keyExtractor={(item) => item?.id}
