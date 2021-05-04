@@ -2,10 +2,10 @@
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-import { Gradient, HeaderWrapper, Text, PressArea } from './styles';
+import { Gradient, HeaderWrapper, Text, Language, PressArea } from './styles';
 import { Logo, ChevronRight, Back, Globe } from '~/svgs';
 
-const HeaderHome = () => {
+const HeaderHome = ({ ChangeLanguage, currentLanguage }) => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -20,7 +20,8 @@ const HeaderHome = () => {
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}>
       <Logo width={42} height={36} />
-      <PressArea>
+      <PressArea onPress={() => ChangeLanguage()}>
+        <Language>{currentLanguage.toUpperCase()}</Language>
         <Globe width={24} height={24} />
       </PressArea>
     </Gradient>

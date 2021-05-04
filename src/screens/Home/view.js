@@ -18,6 +18,7 @@ const HomeView = (props) => {
     onAirNow,
     genresList,
     ChangeLanguage,
+    currentLanguage,
     isTv,
   } = props;
   const insets = useSafeAreaInsets();
@@ -25,7 +26,11 @@ const HomeView = (props) => {
   return (
     <>
       <Container safeArea={insets}>
-        <Header type="Home" />
+        <Header
+          type="Home"
+          ChangeLanguage={ChangeLanguage}
+          currentLanguage={currentLanguage}
+        />
         <StatusBar barStyle="light-content" />
         <Carousel
           list={discoverList}

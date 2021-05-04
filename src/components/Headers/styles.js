@@ -26,11 +26,18 @@ export const Text = styled.Text`
   font-weight: 700;
 `;
 
+export const Language = styled.Text`
+  color: ${(props) => props.theme.svgcolors};
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 4px;
+`;
+
 export const PressArea = styled.TouchableOpacity`
-  width: 44px;
-  height: 44px;
-  background: ${(props) => props.theme.semiTransparent};
+  padding: 8px 12px;
+  background: ${(props) => props.theme.darkTransparent};
   border-radius: 22px;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;

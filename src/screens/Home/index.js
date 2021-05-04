@@ -101,6 +101,7 @@ const Home = () => {
   }
 
   useEffect(() => {
+    ChangeLanguage();
     Inicialize();
   }, []);
 
@@ -110,6 +111,7 @@ const Home = () => {
       isTv={isTv}
       onAirNow={onAirNow}
       ChangeLanguage={ChangeLanguage}
+      currentLanguage={currentLanguage}
       topRatedList={topRatedList}
       trendingList={trendingList}
       airingToday={airingToday}
