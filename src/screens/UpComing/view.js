@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 import { Container, Text, Title, Image, Card, Overview, Line } from './styles';
 
 const RenderItem = ({ item }) => {
@@ -17,10 +18,11 @@ const RenderItem = ({ item }) => {
 
 const UpComingView = (props) => {
   const { upComingList } = props;
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Title>Próximos lançamentos</Title>
+      <Title>{t('UPCOMING')}</Title>
       <FlatList
         data={upComingList}
         keyExtractor={(item) => item?.id}
