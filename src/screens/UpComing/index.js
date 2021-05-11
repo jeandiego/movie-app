@@ -9,7 +9,6 @@ const UpComing = () => {
     const upComingMovies = await getUpcomingMovies();
     setUpComingList(upComingMovies);
   }
-  console.log(upComingList);
 
   async function Inicialize() {
     await getUpcomingList();

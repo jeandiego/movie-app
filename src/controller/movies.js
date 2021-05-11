@@ -60,10 +60,9 @@ export const getSuggestion = async (itemId, isTv) => {
 export const getMovieDetail = async (itemId, isTv) => {
   try {
     const response = await api.get(`${isTv ? 'tv' : 'movie'}/${itemId}`);
-    // console.log(response.data);
     return response.data;
   } catch (error) {
-    // console.error('Movie wasn`t find');
+    console.error('Movie wasn`t find');
     return [];
   }
 };
@@ -72,10 +71,9 @@ export const getTopRated = async (isTv) => {
   try {
     const response = await api.get(`${isTv ? 'tv' : 'movie'}/top_rated`);
     console.log('Success Top Rated');
-    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
-    // console.error('Top Rated wasn`t find')
+    console.error('Top Rated wasn`t find');
     return [];
   }
 };

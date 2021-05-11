@@ -61,7 +61,6 @@ const Carousel = ({ list, genres }) => {
                     <Genres>{genresFiltered}</Genres>
                     <WatchButton
                       onPress={() => {
-                        console.log(item);
                         goToDetail(item);
                       }}>
                       <Text>{t('BUTTONS.PLAY')}</Text>

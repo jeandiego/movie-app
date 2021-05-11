@@ -31,7 +31,6 @@ const MovieList = ({ list, title, highlights, horizontal, columns }) => {
             <Container
               highlights={highlights}
               onPress={() => {
-                console.log(item);
                 goToDetail(item);
               }}>
               <Image

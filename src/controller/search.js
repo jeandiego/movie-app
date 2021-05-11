@@ -8,7 +8,7 @@ export const searchMulti = async (search) => {
     console.log('Success Search results');
     return response.data.results;
   } catch (error) {
-    // console.error('Discover wasn`t find');
+    console.error('Discover wasn`t find');
     return [];
   }
 };

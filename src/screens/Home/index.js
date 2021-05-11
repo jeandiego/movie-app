@@ -88,8 +88,6 @@ const Home = () => {
     Inicialize();
   }
 
-  console.log(i18n.language);
-
   async function Inicialize() {
     setLoading(true);
     await getGenresList();
