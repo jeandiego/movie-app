@@ -1,0 +1,32 @@
+{
+  "translation":{
+    "TRENDING" : "Em alta",
+    "LATEST" : "Recentes",
+    "NOW_PLAYING" : "Assistindo agora",
+    "POPULAR" : "Mais populares",
+    "TOP_RATED" : "Melhores Notas",
+    "RECOMMENDATIONS" : "Opções semelhantes",
+    "ON_AIR_NOW": "No ar agora",
+    "AIRING_TODAY" : "Assistidos hoje",
+    "UPCOMING" : "Próximos lançamentos",
+    "MOVIE" : "Filme",
+    "SERIE" : "Série",
+
+    "SEARCH": {
+      "FIND" : "Encontre seu filme",
+      "PLACEHOLDER" : "Nome do filme ou série",
+      "TITLE" : "Mais procurados agora",
+      "ERROR" : "Ops, não conseguimos encontrar nada relacionado na sua busca."
+    },
+
+    "BUTTONS" : {
+      "PLAY" : "Assistir",
+      "PLAY_NOW" : "Assistir agora",
+      "MY_LIST" : "Minha lista",
+      "LIKE" : "Gostei",
+      "SHARE" : "Compartilhar"
+    }
+
+
+  }
+}

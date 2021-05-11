@@ -1,0 +1,32 @@
+{
+  "translation":{
+    "TRENDING" : "Trending",
+    "LATEST" : "Latest",
+    "NOW_PLAYING" : "Now playing",
+    "POPULAR" : "Populars",
+    "TOP_RATED" : "Top rated",
+    "RECOMMENDATIONS" : "Recommendations",
+    "ON_AIR_NOW": "On air now",
+    "AIRING_TODAY" : "Airing today",
+    "UPCOMING" : "Upcoming",
+    "MOVIE" : "Movie",
+    "SERIE" : "Serie",
+
+    "SEARCH": {
+      "FIND" : "Find your movie",
+      "PLACEHOLDER" : "Name movie or serie",
+      "TITLE" : "Most wanted now",
+      "ERROR" : "Sorry, we couldn't find anything related to your search"
+    },
+
+    "BUTTONS" : {
+      "PLAY" : "Play",
+      "PLAY_NOW" : "Play now",
+      "MY_LIST" : "My list",
+      "LIKE" : "Like",
+      "SHARE" : "Share"
+    }
+
+
+  }
+}
