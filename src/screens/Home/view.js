@@ -2,6 +2,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 import List from '../../components/List';
 import { Container } from './styles';
 import Header from '../../components/Headers';
@@ -22,6 +23,7 @@ const HomeView = (props) => {
     isTv,
   } = props;
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -37,15 +39,15 @@ const HomeView = (props) => {
           genres={genresList}
           ChangeLanguage={ChangeLanguage}
         />
-        <List list={trendingList} title="Em alta" highlights horizontal />
+        <List list={trendingList} title={t('TRENDING')} highlights horizontal />
         <List
           list={isTv ? airingToday : nowPlayingList}
-          title={`${isTv ? 'Assistidos hoje' : 'Assistindo agora'}`}
+          title={`${isTv ? `${t('AIRING_TODAY')}` : `${t('NOW_PLAYING')}`}`}
           horizontal
         />
-        {isTv && <List list={onAirNow} title="Assistindo agora" horizontal />}
-        {!isTv && <List list={popularList} title="Mais populares" horizontal />}
-        <List list={topRatedList} title="Melhores notas" horizontal />
+        {isTv && <List list={onAirNow} title={t('ON_AIR_NOW')} horizontal />}
+        {!isTv && <List list={popularList} title={t('POPULAR')} horizontal />}
+        <List list={topRatedList} title={t('TOP_RATED')} horizontal />
       </Container>
     </>
   );

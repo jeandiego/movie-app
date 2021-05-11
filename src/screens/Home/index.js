@@ -3,7 +3,6 @@ import { useRoute } from '@react-navigation/native';
 import {
   getAiringToday,
   getDiscover,
-  getLatest,
   getNowPlaying,
   getOnTheAir,
   getPopular,
@@ -14,6 +13,7 @@ import {
 import { getGenres } from '../../controller/genres';
 import HomeView from './view';
 import api from '../../api';
+import i18n from '../../lang';
 
 const Home = () => {
   const [trendingList, setTrendingList] = useState([]);
@@ -78,13 +78,17 @@ const Home = () => {
   function ChangeLanguage() {
     if (currentLanguage === 'pt') {
       api.defaults.params.language = 'en-US';
+      i18n.changeLanguage('en');
       setCurrentLanguage('en');
     } else {
       api.defaults.params.language = 'pt-BR';
       setCurrentLanguage('pt');
+      i18n.changeLanguage('pt');
     }
     Inicialize();
   }
+
+  console.log(i18n.language);
 
   async function Inicialize() {
     setLoading(true);

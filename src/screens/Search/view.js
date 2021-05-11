@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { Container, Text, Image, View, Wrapper, Title } from './styles';
 import SearchInput from '../../components/SearchInput';
 import { goToDetail } from '../../utils/navigate';
@@ -8,6 +9,7 @@ import useColors from '../../hooks/colors';
 const SearchView = (props) => {
   const { foundList, trendingList, searchName, onChangeText, loading } = props;
   const colors = useColors();
+  const { t } = useTranslation();
 
   const SearchResult = ({ item }) => {
     const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -30,18 +32,16 @@ const SearchView = (props) => {
   const SearchHeader = () => {
     return (
       <View>
-        <Text description>
-          Ops, não conseguimos encontrar nada relacionado na sua busca.
-        </Text>
+        <Text description>{t('SEARCH.ERROR')}</Text>
       </View>
     );
   };
 
   return (
     <Container>
-      <Title>Encontre seu filme</Title>
+      <Title>{t('SEARCH.FIND')}</Title>
       <SearchInput
-        placeholder="Nome do filme ou série"
+        placeholder={t('SEARCH.PLACEHOLDER')}
         value={searchName}
         onChangeText={onChangeText}
         loading={loading}
@@ -70,7 +70,7 @@ const SearchView = (props) => {
                 }}
                 ListHeaderComponent={
                   <Text style={{ paddingLeft: 16, color: colors.description }}>
-                    Mais procurados agora
+                    {t('SEARCH.TITLE')}
                   </Text>
                 }
               />

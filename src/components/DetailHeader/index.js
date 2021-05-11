@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../Headers';
 
 import {
@@ -26,6 +27,7 @@ const DetailHeader = ({ detail }) => {
   const colors = useColors();
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
   const uri = `${ImgUrl}${detail?.backdrop_path}`;
+  const { t } = useTranslation();
 
   const setVoteColor = (vote) => {
     if (vote >= 8) {
@@ -39,17 +41,17 @@ const DetailHeader = ({ detail }) => {
 
   const buttonsView = [
     {
-      text: 'Minha lista',
+      text: `${t('BUTTONS.MY_LIST')}`,
       icon: Add,
       onPress: () => {},
     },
     {
-      text: 'Gostei',
+      text: `${t('BUTTONS.LIKE')}`,
       icon: Like,
       onPress: () => {},
     },
     {
-      text: 'Compartilhar',
+      text: `${t('BUTTONS.SHARE')}`,
       icon: Send,
       onPress: () => {},
     },
@@ -77,13 +79,13 @@ const DetailHeader = ({ detail }) => {
       <Content>
         <Wrapper>
           <Logo width={26} height={30} />
-          <Badge>FILME</Badge>
+          <Badge>{t('MOVIE').toUpperCase()}</Badge>
           <Average>{setVoteColor(detail?.vote_average)}</Average>
         </Wrapper>
         <Title>{detail?.title || detail?.name}</Title>
         <Description>{detail?.overview}</Description>
         <PlayButton onPress={() => {}}>
-          <Text>Assistir agora</Text>
+          <Text>{t('BUTTONS.PLAY_NOW')}</Text>
         </PlayButton>
         <Wrapper style={{ paddingBottom: 16, paddingTop: 16 }}>
           {buttonsView.map((item, index) => {

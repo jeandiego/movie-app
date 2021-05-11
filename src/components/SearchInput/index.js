@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { SearchIcon } from '~/svgs';
 import { InputArea, InputSearch, Loading } from './styles';
 

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 import {
   Container,
   Image,
@@ -16,6 +17,7 @@ import { goToDetail } from '../../utils/navigate';
 
 const Carousel = ({ list, genres }) => {
   const ImgUrl = 'https://image.tmdb.org/t/p/w500/';
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -62,7 +64,7 @@ const Carousel = ({ list, genres }) => {
                         console.log(item);
                         goToDetail(item);
                       }}>
-                      <Text>Assistir</Text>
+                      <Text>{t('BUTTONS.PLAY')}</Text>
                     </WatchButton>
                   </InfoWrapper>
                 </GradientBottom>
