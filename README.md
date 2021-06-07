@@ -17,10 +17,6 @@ Este é um projeto do qual pude por em prática meus conhecimentos em React Nati
 Este é meu primeito projeto não guiado por curso do qual pude por em prática tudo que estudei e ainda me possibilitou aprender mais conteúdos.
 
 
-
-Para executar o projeto, é necessário criar um 
-
-
 # Building
 Para executar o projeto, é necessário ter o Node.js e o Yarn instalados em seu computador e executar os seguintes comandos no seu terminal:
 
