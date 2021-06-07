@@ -1,11 +1,10 @@
 # moviedb-rn
+![Movie App](https://github.com/jeandiego/screenshots/blob/main/Movie-App/movie-logo.png?raw=true)
 
 # Sobre o projeto
 O Movie é um aplicativo de filmes e séries de TV, semelhante ao Netflix. Nele, o usuário tem acesso ao catalogo de filmes e séries, busca através dos nomes e acesso aos próximos lançamentos. Ainda é possível ver detalhes de um filme e opções semelhantes do mesmo gênero.
 
-# Layout
-![Movie App](https://github.com/jeandiego/screenshots/blob/main/Movie-App/movie-logo.png?raw=true)
-
+## Layout
 ###### Screenshots
 
 
