@@ -1,4 +1,4 @@
-# moviedb-rn
+# Movie App
 ![Movie App](https://github.com/jeandiego/screenshots/blob/main/Movie-App/movie-logo.png?raw=true)
 
 # Sobre o projeto
