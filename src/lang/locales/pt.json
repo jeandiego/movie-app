@@ -11,10 +11,14 @@
     "UPCOMING" : "Próximos lançamentos",
     "MOVIE" : "Filme",
     "SERIE" : "Série",
+    "MOVIES" : "Filmes",
+    "SERIES" : "Séries",
+    "SEARCH_TAB": "Buscar",
+    "SOON": "Breve",
 
     "SEARCH": {
       "FIND" : "Encontre seu filme",
-      "PLACEHOLDER" : "Nome do filme ou série",
+      "PLACEHOLDER" : "Nome do filme ou série...",
       "TITLE" : "Mais procurados agora",
       "ERROR" : "Ops, não conseguimos encontrar nada relacionado na sua busca."
     },

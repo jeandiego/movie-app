@@ -5,11 +5,13 @@ import Home from '../../screens/Home';
 import UpComing from '../../screens/UpComing';
 import { useColors } from '../../hooks';
 import { Movie, TvShow, SearchIcon, Calendar } from '~/svgs';
+import { useTranslation } from 'react-i18next';
 
 const Tabs = AnimatedTabBarNavigator();
 
 const MainRoutes = () => {
   const colors = useColors();
+  const {t} = useTranslation();
 
   return (
     <Tabs.Navigator
@@ -28,7 +30,7 @@ const MainRoutes = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: 'Filmes',
+          tabBarLabel: `${t(`MOVIES`)}`,
           tabBarIcon: ({ focused }) => (
             <Movie
               width={24}
@@ -42,7 +44,7 @@ const MainRoutes = () => {
         name="Series"
         component={Home}
         options={{
-          tabBarLabel: 'Series',
+          tabBarLabel: `${t(`SERIES`)}`,
           tabBarIcon: ({ focused }) => (
             <TvShow
               width={24}
@@ -56,7 +58,7 @@ const MainRoutes = () => {
         name="Search"
         component={Search}
         options={{
-          tabBarLabel: 'Buscar',
+          tabBarLabel: `${t(`SEARCH_TAB`)}`,
           tabBarIcon: ({ focused }) => (
             <SearchIcon
               width={24}
@@ -70,7 +72,7 @@ const MainRoutes = () => {
         name="Soon"
         component={UpComing}
         options={{
-          tabBarLabel: 'Em breve',
+          tabBarLabel: `${t(`SOON`)}`,
           tabBarIcon: ({ focused }) => (
             <Calendar
               width={24}
