@@ -1,17 +1,17 @@
 import React from 'react';
 import { AnimatedTabBarNavigator } from 'react-native-animated-nav-tab-bar';
+import { useTranslation } from 'react-i18next';
 import Search from '../../screens/Search';
 import Home from '../../screens/Home';
 import UpComing from '../../screens/UpComing';
 import { useColors } from '../../hooks';
 import { Movie, TvShow, SearchIcon, Calendar } from '~/svgs';
-import { useTranslation } from 'react-i18next';
 
 const Tabs = AnimatedTabBarNavigator();
 
 const MainRoutes = () => {
   const colors = useColors();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Tabs.Navigator
