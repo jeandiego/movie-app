@@ -5,7 +5,7 @@ import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('screen');
 
 export const Container = styled.View`
-  height: ${`${height / 2}px`};
+  height: ${`${height / 1.75}px`};
 `;
 
 export const Image = styled.Image.attrs({
