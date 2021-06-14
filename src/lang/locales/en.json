@@ -11,11 +11,16 @@
     "UPCOMING" : "Upcoming",
     "MOVIE" : "Movie",
     "SERIE" : "Serie",
+    "MOVIES" : "Movies",
+    "SERIES" : "Series",
+    "SEARCH_TAB": "Search",
+    "SOON": "Soon",
+
 
     "SEARCH": {
       "FIND" : "Find your movie",
-      "PLACEHOLDER" : "Name movie or serie",
-      "TITLE" : "Most wanted now",
+      "PLACEHOLDER" : "Name movie or serie...",
+      "TITLE" : "Most searched movie",
       "ERROR" : "Sorry, we couldn't find anything related to your search"
     },
 
@@ -26,7 +31,5 @@
       "LIKE" : "Like",
       "SHARE" : "Share"
     }
-
-
   }
 }
