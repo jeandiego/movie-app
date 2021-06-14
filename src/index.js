@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import Routes from './routes';
 import GlobalStyle from './styles';
 import './lang';
+import '~/config/reactotron';
 
 const App = () => {
   return (
