@@ -6,7 +6,6 @@ import {
   getNowPlaying,
   getOnTheAir,
   getPopular,
-  getSuggestion,
   getTopRated,
   getTrending,
 } from '../../controller/movies';
@@ -20,7 +19,7 @@ const Home = () => {
   const [popularList, setPopularList] = useState([]);
   const [nowPlayingList, setNowPlayingList] = useState([]);
   const [discoverList, setDiscoverList] = useState([]);
-  const [suggestionList, setSuggestionList] = useState([]);
+
   const [genresList, setGenresList] = useState([]);
   const [topRatedList, setTopRatedList] = useState([]);
   const [airingToday, setAiringToday] = useState([]);
@@ -30,49 +29,27 @@ const Home = () => {
   const myRoute = useRoute();
   const isTv = myRoute?.name === 'Series';
 
-  async function getTopRatedList() {
+  async function Initialize() {
+    setLoading(true);
+
     const topRatedItem = await getTopRated(isTv);
-    setTopRatedList(topRatedItem);
-  }
-
-  async function getOnAirNow() {
     const onTheAir = await getOnTheAir();
-    setOnAirNow(onTheAir);
-  }
-
-  async function getAiringTodayList() {
     const airingTodayList = await getAiringToday();
-    setAiringToday(airingTodayList);
-  }
-
-  async function getTrendingList() {
     const trendingMovieList = await getTrending(isTv);
-    setTrendingList(trendingMovieList);
-  }
-
-  async function getPopularList() {
     const popularMovieList = await getPopular(isTv);
-    setPopularList(popularMovieList);
-  }
-
-  async function getNowPlayingList() {
     const nowPlayingMovieList = await getNowPlaying(isTv);
-    setNowPlayingList(nowPlayingMovieList);
-  }
-
-  async function getDiscoverList() {
     const discoverMovieList = await getDiscover(isTv);
-    setDiscoverList(discoverMovieList);
-  }
-
-  async function getSuggestionList() {
-    const suggestionMovieList = await getSuggestion(isTv);
-    setSuggestionList(suggestionMovieList);
-  }
-
-  async function getGenresList() {
     const genresMovieList = await getGenres('movie');
+
+    setTrendingList(trendingMovieList);
+    setPopularList(popularMovieList);
+    setNowPlayingList(nowPlayingMovieList);
+    setDiscoverList(discoverMovieList);
     setGenresList(genresMovieList);
+    setTopRatedList(topRatedItem);
+    setAiringToday(airingTodayList);
+    setOnAirNow(onTheAir);
+    setLoading(false);
   }
 
   function ChangeLanguage() {
@@ -85,26 +62,11 @@ const Home = () => {
       setCurrentLanguage('pt');
       i18n.changeLanguage('pt');
     }
-    Inicialize();
-  }
-
-  async function Inicialize() {
-    setLoading(true);
-    await getGenresList();
-    await getDiscoverList();
-    await getTrendingList();
-    await getPopularList();
-    await getNowPlayingList();
-    await getSuggestionList();
-    await getAiringTodayList();
-    await getTopRatedList();
-    await getOnAirNow();
-    setLoading(false);
+    Initialize();
   }
 
   useEffect(() => {
-    ChangeLanguage();
-    Inicialize();
+    Initialize();
   }, []);
 
   return (
@@ -120,7 +82,6 @@ const Home = () => {
       popularList={popularList}
       nowPlayingList={nowPlayingList}
       discoverList={discoverList}
-      suggestionList={suggestionList}
       genresList={genresList}
     />
   );
